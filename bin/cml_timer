@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+=begin
+  $ cml_timer minutes
+=end
+
+require "bundler/setup"
+require "cml_timer"
+
+minutes = ARGV[0]
+if minutes.nil?
+  puts 'Set minutes'
+  puts '$ cml_timer minutes'
+  exit 1
+end
+
+timer = ::CmlTimer::CmlTimer.new
+timer.start(wait_time_second: minutes)
